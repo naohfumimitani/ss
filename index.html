@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+    <head>
+        <meta charset="utf-8">
+        <title>N.Mitani Port</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Webフォント -->
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="animate.css">
+
+    </head>
+
+    <body>
+        <div class="wrap">
+            <!--ヘッダー-->
+            <div class="header-wrap">
+                <div class="header-content">
+                    <header class="header">
+                            <!-- メニュー項目 -->
+                            <h1 class="header-icon">
+                                <!-- ロゴ　354px 345px -->
+                                <!--<a href="#" class="navbar-brand"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="354" height="354" viewBox="0 0 354 354">
+                                    <image id="logo_transparent" width="354" height="354" xlink:href="data:image/png;base64,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"/>
+                                  </svg>
+                                </a>-->
+                                <a href="#" class="navbar-brand"><img src="img/logo.png" alt="ロゴ" width="354" height="354">
+                                </a>
+                            </h1>
+                            <div class="nav-menu_wrap">
+                                <nav class="header-nav navbar navbar-expand-lg navbar-light bg-light-0 
+                                justify-content-center">
+                                    <!-- 横幅が狭いときに出るハンバーガーボタン -->
+                                    <button type="button" class="navbar-toggler btn btn-light" data-toggle="collapse" aria-expanded="false" data-target="#nav-bar">
+                                    menu
+                                    </button>
+
+                                    <div class="navbar-collapse collapse" id="nav-bar">
+                                    <ul class="nav-menu navbar-nav flex-column">
+                                        <li class="nav-item "><a href="#concept" class="nav-link text-dark">concept</a></li>
+                                        <li class="nav-item "><a href="#about" class="nav-link text-dark">about me</a></li>
+                                        <!--<li class="nav-item "><a href="#skill" class="nav-link text-light">skill</a></li>-->
+                                        <li class="nav-item "><a href="#service" class="nav-link text-dark">service</a></li>
+                                        <li class="nav-item "><a href="#work" class="nav-link text-dark">work</a></li>
+                                        <li class="nav-item "><a href="#contact" class="nav-link text-dark">contact</a></li>
+                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                    </header>
+                </div>
+            </div>
+            <!--コンテンツ-->
+            <div class="content-wrap">
+                <!--concept-->
+                <section class="concept" id="concept">
+                    <div class="concept-movie">
+                        <ul>
+                            <li>
+                                <img class="img" src="img/Top Img1.jpg"></li>
+                            <li>
+                                <img class="img" src="img/Top Img2.jpg"></li>
+                            <li>
+                                <img class="img" src="img/TopImg 3.jpg"></li>
+                        </ul>
+                    </div>
+                    <h1 class="concept-title">concept</h1>
+                    <div class="concept-content">
+                    <p>”確かな技術力”と”誠意ある対応”こそがお客様の喜びにつながると考えます。<br>
+                        Web制作はお客様の売り上げ向上に関わる重要な取り組みの一つです。<br>
+                        だからこそ１件１件にしっかり取り組み、常に心を込めたサービスをご提供することをモットーとしています。</p>
+                    </div>
+                </section>
+                <!--about me-->
+                <section class="about" id="about">
+                    <h1 class="concept-title">about me</h1>
+                    <div class="about-content">
+                        <div class="about-img"><img src="img/my.png" alt="ポートフォリオ写真" height="200" width="200"></img></div>
+                        <div class="about-write">
+                        <p>はじめまして、三谷と申します。私は2017年から個人でWebサイトやメディアの運営、動画制作を行ってきました。<br>
+                         元々は趣味で行っていましたが、自分のスキルで多くの方のお役に立ちたいという思いで改めて勉強し直しHP・サイト制作をしております。<br>
+                         webを通じて御社の利益を最大化するためのご提案・サポートするパートナーとなれることを目指しています。
+                        </p>
+                        <div class="skill-content">
+                            <p>skill</p>
+                            <div class="skill-main_contents">
+                                <i class="fab fa-html5 fa-4x"></i>
+                                <i class="fab fa-css3-alt fa-4x"></i>
+                                <i class="fab fa-js fa-4x"></i>
+                                <i class="fab fa-wordpress-simple fa-4x"></i>
+                            </div>
+                            <div class="skill-sub_contents">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="111" height="50" viewBox="0 0 111 111">
+                                    <g id="Layer_x0020_1" transform="translate(-1081.852 -1128.771)">
+                                      <rect id="長方形_21" data-name="長方形 21" width="111" height="111" transform="translate(1081.852 1128.771)" fill="#ff7c00"/>
+                                      <rect id="長方形_22" data-name="長方形 22" width="93" height="92" transform="translate(1090.852 1138.771)" fill="#261300"/>
+                                      <g id="_1927324032" transform="translate(1155.852 1158.955)">
+                                        <rect id="長方形_23" data-name="長方形 23" width="10" height="37" rx="5" transform="translate(0 14.816)" fill="#ff7c00"/>
+                                        <circle id="楕円形_5" data-name="楕円形 5" cx="5" cy="5" r="5" transform="translate(0 -0.184)" fill="#ff7c00"/>
+                                      </g>
+                                      <path id="パス_3" data-name="パス 3" d="M4887.122,5255.858l3.6,11.917c.187.7.553.876,1.048.868h9.216c.711.008.761-.208.653-.682l-15.22-50.768a.225.225,0,0,0-.244-.158L4873.41,5217c-.5,0-.51.259-.466.748a10.379,10.379,0,0,1-.3,4.144l-13.474,46.1c-.144.438-.108.653.466.661l8.7-.008c.919-.028.97-.279,1.127-.74l3.017-12.045Zm-1.86-9.266H4874.7l5.121-20.714Z" transform="translate(-3750.273 -4058.343)" fill="#ff7c00" fill-rule="evenodd"/>
+                                    </g>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="112" height="50" viewBox="0 0 112 111">
+                                    <g id="Layer_x0020_1" transform="translate(-1081.691 -1129.287)">
+                                      <rect id="長方形_26" data-name="長方形 26" width="112" height="111" transform="translate(1081.691 1129.287)" fill="#87bcf6"/>
+                                      <rect id="長方形_27" data-name="長方形 27" width="93" height="93" transform="translate(1091.691 1138.287)" fill="#252653"/>
+                                      <path id="パス_6" data-name="パス 6" d="M9459.5,6898.774c-8.268-4.171-22.5-2.15-22.5,8.73,0,8.1,5.606,11.291,12.461,13.969,9.74,3.8.274,10.988-11.617,3.557,0,0-.426-.209-.635,0a.777.777,0,0,0-.209.635v7.808c4.156,2.128,7.258,3.211,12.057,3.16,15.477-.159,17.706-14.979,9.475-20.679a51.07,51.07,0,0,0-6.755-3.594c-6.544-2.5-5.988-6.047-3.91-7.836,2.294-1.983,8.658,1.018,11.335,2.691,1.623,1,1.891-.245,1.883-1.342l-.021-5.188C9461.063,6899.452,9460.637,6899.352,9459.5,6898.774Z" transform="translate(-8294.689 -5725.835)" fill="#87bcf6" fill-rule="evenodd"/>
+                                      <path id="パス_7" data-name="パス 7" d="M4595.712,5242.229v-19.005a.943.943,0,0,1,.418-.418c8.052-.411,12.634,1.162,13.045,9.763.469,9.87-7.807,10.08-13.463,10.08ZM4586,5215.836v51.092h9.712v-16.466c11.934.852,22.7-3.427,22.7-17.223,0-5.563-1.731-11.162-5.837-14.546C4606.838,5213.96,4593.432,5215.014,4586,5215.836Z" transform="translate(-3478.691 -4056.332)" fill="#87bcf6" fill-rule="evenodd"/>
+                                    </g>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="112" height="50" viewBox="0 0 112 111">
+                                    <g id="Layer_x0020_1" transform="translate(-1082.035 -1129.108)">
+                                    <rect id="長方形_19" data-name="長方形 19" width="112" height="111" transform="translate(1082.035 1129.108)" fill="#ff2bc2"/>
+                                    <rect id="長方形_20" data-name="長方形 20" width="94" height="93" transform="translate(1091.035 1138.108)" fill="#2e001e"/>
+                                    <path id="パス_1" data-name="パス 1" d="M3963.234,5208.116c.369.8.917,1.784,1.119,2.195.563,1.126,1.112,2.173,1.668,3.285l9.061,18.035c.267.527.765,1.119.513,1.689l-12.714,24.272c-.3.6-.975,1.3.246,1.3h7.537c1.068,0,1.083-.563,1.762-2.007l8.627-18.078c.592.52,7.638,15.818,9.342,19.313.3.606.368.772,1.234.772,1.22,0,7.927.145,8.57-.13.137-.708-1.083-2.657-1.444-3.343l-3.35-6.426c-2.65-5.1-5.682-11.284-8.368-16.128-.549-.989-.339-.938.9-3.227.6-1.112,1.1-2.13,1.7-3.242.549-1.032,1.1-2.094,1.653-3.169l5.04-9.7a57.2,57.2,0,0,0,3.076-6.173c.123-.44-.606-.412-1.126-.412l-6.656.007h-.108c-.729,0-.838.144-1.1.671l-6.541,13.956a53.259,53.259,0,0,1-2.375,5.04c-.686-1.7-1.523-3.335-2.267-5.025l-4.779-10.064c-.433-.823-.765-1.661-1.177-2.476-.224-.448-.418-.823-.613-1.264-.274-.614-.238-.837-1.054-.837l-7.631.007C3962.837,5206.969,3962.722,5207,3963.234,5208.116Z" transform="translate(-2859.499 -4048.442)" fill="#ff3bc1" fill-rule="evenodd"/>
+                                    <path id="パス_2" data-name="パス 2" d="M9447.714,5241.333c0-3.148.325-6.137,2.087-8.779a11.221,11.221,0,0,1,1.407-1.776,9.864,9.864,0,0,1,9.6-2.151l.014,23.912C9453.3,5254.7,9447.714,5250.069,9447.714,5241.333Zm13.1-20.316-3.062-.058a19.082,19.082,0,0,0-13.442,5.632,20.884,20.884,0,0,0-5.313,13.8c0,6.267,1.154,10.83,4.541,14.8a16.976,16.976,0,0,0,12.685,5.4,27.7,27.7,0,0,0,7.948-.931c1.4-.383,4.578-1.416,5.415-2.13a20.811,20.811,0,0,0-.145-2.766c-.1-2.844-.036-6.642-.028-9.544l.007-36.279c.008-.722.044-.938-.715-.938h-7.183c-1,0-.708.614-.708,2.715Z" transform="translate(-8296.539 -4049.488)" fill="#fe31c0" fill-rule="evenodd"/>
+                                    </g>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="112" height="50" viewBox="0 0 112 111">
+                                    <g id="Layer_x0020_1" transform="translate(-1082.089 -1128.973)">
+                                      <rect id="長方形_24" data-name="長方形 24" width="112" height="111" transform="translate(1082.089 1128.973)" fill="#d573f7"/>
+                                      <rect id="長方形_25" data-name="長方形 25" width="93" height="93" transform="translate(1091.089 1137.973)" fill="#252653"/>
+                                      <path id="パス_4" data-name="パス 4" d="M4638,5210.4v51.186l10.187.015v-16.143a49.446,49.446,0,0,0,10-.657,16.719,16.719,0,0,0,8.923-5.1,16.089,16.089,0,0,0,4.462-11.688c0-12.533-8.172-18.475-20.994-18.042Zm10.187,26.964.015-19.131c4.259-.086,7.97-.036,10.41,2.13,1.913,1.7,2.621,3.544,2.549,7.862C4661.023,5236.583,4655.42,5237.363,4648.187,5237.363Z" transform="translate(-3530.299 -4051.55)" fill="#d573f7" fill-rule="evenodd"/>
+                                      <path id="パス_5" data-name="パス 5" d="M9931.112,6913.968l.021,29.225,10.172.05.028-25.123-.028-1.112c3.675-3.22,6.064-4.28,11.118-4.165.4.015.534.015.534-.5v-7.386c.028-1.307-.261-1.653-1.755-1.6-4.007.13-5.161.454-7.948,2.809-.592.5-2.347,2.605-2.347,2.605,0-2.556-.57-4.28-1.277-4.8-.491-.354-.613-.325-1.321-.325h-1.343l-5.639-.079c-.621.1-.657.245-.643.96C9930.758,6907.716,9931.112,6909.961,9931.112,6913.968Z" transform="translate(-8784.772 -5732.733)" fill="#d573f7" fill-rule="evenodd"/>
+                                    </g>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="112" height="50" viewBox="0 0 112 111">
+                                    <g id="Layer_x0020_1" transform="translate(-1082.04 -1129.162)">
+                                      <rect id="長方形_30" data-name="長方形 30" width="112" height="111" transform="translate(1082.04 1129.162)" fill="#bc85f3"/>
+                                      <rect id="長方形_31" data-name="長方形 31" width="92" height="92" transform="translate(1092.04 1138.162)" fill="#252653"/>
+                                      <path id="パス_10" data-name="パス 10" d="M3409.344,5207.139l3.895,12.875h10.939l-15.534-51.819a.23.23,0,0,0-.253-.159l-12.854-.037c-.5,0-.513.26-.469.752a10.61,10.61,0,0,1-.3,4.176L3381,5220.022l10.375-.015,3.23-12.875Zm-1.864-9.335h-10.65l5.166-20.859Z" transform="translate(-2282.356 -4009.787)" fill="#bc85f3" fill-rule="evenodd"/>
+                                      <path id="パス_11" data-name="パス 11" d="M9752.459,6912.47l20.078.029c1.266-1.619,1.5-4.66,1.461-6.654-.139-8.092-5.5-15.838-15.182-15.888-16.256-.094-19.334,20.462-13.8,32.318,1.741,3.729,5.238,6.1,9.342,7.225a22.564,22.564,0,0,0,5.867.78,22.945,22.945,0,0,0,11.256-2.8c.051-.029.139-.029.146-.086v-.231l-.007-6.7c0-.3-.231-.477-.579-.369-4.1,1.235-18,5.18-18.648-7.254C9752.387,6912.751,9752.365,6912.47,9752.459,6912.47Zm10.064-6.712H9752.3c.051-5.434,2.543-8.519,6.394-8.533,3.5-.015,5.722,2.413,5.831,8.4v.13Z" transform="translate(-8597.877 -5719.301)" fill="#bc85f3" fill-rule="evenodd"/>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+                <!--service-->
+                <section class="service" id="service">
+                    <h1 class="concept-title">service</h1>
+                    <div class="service-menu">
+                        <div class="service-content">
+                            <div class="service-back">
+                                <div class="service-content_img">
+                                    <i class="fab fa-wordpress fa-7x"></i>
+                                </div>
+                            </div>
+                            <h3>HP・webサイト制作</h3>
+                            <div class="service-write">
+                                <p>コーポレートサイトや個人ブログ、およびウェブマガジンなどのWordPressサイトの構築や既存サイトのWordPress移行、コードの修正に対応しております。</p>
+                                <p>【料金目安】<br>
+                                    Wordpress移行: ¥100,000~<br>
+                                    Wordpress制作: ¥200,000~</p>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-back">
+                                <div class="service-content_img">
+                                    <i class="fas fa-laptop-code fa-7x"></i>
+                                </div>
+                            </div>
+                            <h3>LPコーディング</h3>
+                            <div class="service-write">
+                                <p>LPやコーポレートサイト、ブログなど、 目的に応じた適切なコーディングを行います(レスポンシブ対応可)。また、軽微なコードの修正などにも対応しています。</p>
+                                <p>【料金目安】<br>
+                                    コード修正: ¥10,000~/1p<br>
+                                    LP制作: ¥20,000~/1p
+                                </p>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-back">
+                                <div class="service-content_img">
+                                    <i class="fas fa-mobile-alt fa-7x"></i>
+                                </div>
+                            </div>
+                            <h3>サイトの運営・更新代行</h3>
+                            <div class="service-write">
+                            <p>サイト運営の更新作業を代行いたします。料金は作業量に応じてご相談させていただきます。<br><br><br></p>
+                            <p>【料金目安】<br>
+                                月額: ¥10,000~
+                            </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="service-content_write">
+                        <p>お客様１件１件のご要望と目的に合わせたご提案を致します。<br>
+                            既存のテンプレートデザインを使うことで高品質のサイトを低価格で構築ができます。もちろんオリジナル制作も可能です。<br>
+                            また、Webサイト制作だけではなく動画制作やSNS活用などのご相談もお受けいたします。</p>
+                    </div>
+                </section>
+                <!--work-->
+                <section class="work" id="work">
+                    <h1 class="concept-title">work</h1>
+                    <div class="work-content">
+                        <div class="work_img">
+                            <a class="work-content_img" data-toggle="modal" data-target="#modal1">
+                                <img src="img/work1.png" alt="ポートフォリオ" >
+                            </a>
+                            <div class="modal fade" id="modal1" tabindex="-1"
+                                role="dialog" aria-labelledby="label1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="label1">ポートフォリオサイト制作</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <img class="modal-body" src="img/FireShot Capture 010 - Bar NANDI - naofumimitani.github.io.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <p>ポートフォリオサイト制作</p>
+                        </div>
+                        <div class="work_img">
+                            <a class="work-content_img" data-toggle="modal" data-target="#modal2">
+                                <img src="img/work2.png" alt="ポートフォリオ" >
+                            </a>
+                            <div class="modal fade" id="modal2" tabindex="-1"
+                                role="dialog" aria-labelledby="label1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="label1">事業用オリジナルサイト制作（WordPressカスタム）</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <video class="modal-body" src="img/画面収録 2021-03-16 7.02.14.mov"　controls muted autoplay playinline loop></video>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>事業用オリジナルサイト制作（WordPressカスタム）</p>
+                        </div>
+                        <div class="work_img">
+                            <a class="work-content_img">
+                                <img src="img/work3.png" alt="ポートフォリオ" data-toggle="modal" data-target="#modal3">
+                            </a>
+                            <div class="modal fade" id="modal3" tabindex="-1"
+                                role="dialog" aria-labelledby="label1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="label1">BAR NANDIさまコーディング</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <img class="modal-body" src="img/FireShot Capture 010 - Bar NANDI - naofumimitani.github.io.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <p>BAR NANDIさまコーディング</p>
+                        </div>
+                        <div class="work_img">
+                            <a class="work-content_img">
+                                <img src="img/work5.png" alt="架空建築会社さまサイト制作" data-toggle="modal" data-target="#modal4">
+                            </a>
+                            <div class="modal fade" id="modal4" tabindex="-1"
+                                role="dialog" aria-labelledby="label1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="label1">架空建築会社さまサイト制作（WordPressカスタム）</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <video class="modal-body" src="img/billion.mov"　controls muted autoplay playinline loop></video>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>架空建築会社さまサイト制作（WordPressカスタム）</p>
+                        </div>
+                        <div class="work_img">
+                            <a class="work-content_img">
+                                <img src="img/work6.png" alt="架空建築会社さまサイト制作" data-toggle="modal" data-target="#modal5">
+                            </a>
+                            <div class="modal fade" id="modal5" tabindex="-1"
+                                role="dialog" aria-labelledby="label1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="label1">架空建築会社さまサイト制作</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <img class="modal-body" src="img/FireShot Capture 010 - Bar NANDI - naofumimitani.github.io.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <p>架空建築会社さまサイト制作</p>
+                        </div>
+                        <div class="work_img">
+                            
+                        </div>
+                    </div>
+                </section>
+                <!--contact-->
+                <section class="contact" id="contact">
+                    <h1 class="concept-title">contact</h1>
+                    <p>ご依頼はお問い合わせフォームからお願い致します。</p>
+                    <div class="contact-content">
+                        <div class="contact-name">
+                            <div class="label"><label>会社名</label></div>
+                            <form>
+                                <div class="form-row">
+                                  <div class="col">
+                                    <input type="text" class="form-control" placeholder="会社名">
+                                  </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="contact-name">
+                            <label>お名前</label>
+                            <form>
+                                <div class="form-row">
+                                        <div class="col">
+                                        <input type="text" class="form-control" placeholder="姓">
+                                        </div>
+                                        <div class="col">
+                                        <input type="text" class="form-control" placeholder="名">
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+                        <div class="contact-name">
+                            <label >メールアドレス</label>
+                            <form>
+                                <div class="col">
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="contact-name">
+                            <label >ご要望欄</label>
+                            <form>
+                                <div class="col">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"　></textarea>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="contact-button">
+                        <button type="submit" class="btn btn-primary w-50 mt-2">送信</button>
+                    </div>
+
+                </section>
+                <footer>
+                    <div class="footer-content ">
+                        
+                    </div>
+                    <p class="copyright">Copyright © 2021 N.Mitani.</p>
+        　      </footer>
+            </div>
+        </div> 
+        <div id="page_top">
+            <a href="#"></a>
+        </div>
+        <!--jquery-->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <!--Bootstrap-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="jquery.waypoints.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
