@@ -485,8 +485,18 @@ footer{
     left: 0;
     margin: auto;
   }
-
   .about-img{
     border-radius: 50%;
     box-shadow: 0 5px 25px 0 rgba(0, 0, 0, .5);
+}
+
+/*googleform*/
+.contact2{
+    width:100%;
+    margin-bottom:50px;
+}
+.contact2 iframe{
+    width:90%;
+    display:block;
+    margin:0 auto;
 }
